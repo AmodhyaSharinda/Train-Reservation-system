@@ -1,0 +1,31 @@
+package com.customer;
+
+public class Contact {
+
+	
+	private int idcontact; 
+	private String Username;
+	private String ComplainType;
+	private String Complain;
+	private String status;
+	public Contact(int idcontact, String username, String complainType, String complain, String Status) {
+		this.idcontact = idcontact;
+		Username = username;
+		ComplainType = complainType;
+		Complain = complain;
+		status = Status;
+	}
+	public int getIdcontact() {
+		return idcontact;
+	}
+	public String getUsername() {
+		return Username;
+	}
+	public String getComplainType() {
+		return ComplainType;
+	}
+	public String getComplain() {
+		return Complain;
+	}
+	
+}

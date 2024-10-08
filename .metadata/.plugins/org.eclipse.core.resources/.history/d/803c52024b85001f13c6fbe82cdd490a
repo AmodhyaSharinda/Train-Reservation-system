@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Online Train Reservation System</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Importing Google Fonts */
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            padding: 0 10px;
+            background: linear-gradient(135deg, #6B0F1A 0%, #B91372 50%, #FC354C 100%);
+        }
+
+        .wrapper {
+            width: 450px;
+            padding: 40px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #fff;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .input-field {
+            position: relative;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+            margin: 20px 0;
+        }
+
+        .input-field label {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 16px;
+            pointer-events: none;
+            transition: 0.2s ease;
+        }
+
+        .input-field input,
+        .input-field textarea,
+        .input-field select {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .input-field textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .input-field select {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .input-field input:focus~label,
+        .input-field input:valid~label,
+        .input-field textarea:focus~label,
+        .input-field textarea:valid~label,
+        .input-field select:focus~label,
+        .input-field select:valid~label {
+            font-size: 0.85rem;
+            top: -10px;
+            color: #fff;
+        }
+
+        button {
+            background-color: #fff;
+            color: #6B0F1A;
+            font-weight: 600;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FC354C;
+            color: #fff;
+            box-shadow: 0px 4px 15px rgba(252, 53, 76, 0.5);
+        }
+
+        /* Header styling */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent;
+            padding: 20px 40px;
+            box-shadow: none;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .navbar .links li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+
+        .navbar .links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .links a:hover {
+            color: #FC354C;
+        }
+
+        .buttons a.signup {
+            background-color: #fff;
+            color: #FC354C;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .buttons a.signup:hover {
+            background-color: #FC354C;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <h2 class="logo"><a href="#">ExpressReserve</a></h2>
+            <ul class="links">
+                <li><a href="home.jsp">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Book Now</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="Account.jsp">Account</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="login.jsp" class="signup">Sign In</a>
+                <a href="#" class="signup">Admin</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Middle section for feedback form -->
+    <div class="wrapper">
+        <h2>Submit Feedback or Complaint</h2>
+        <form action="SubmitFeedback" method="post">
+            <div class="input-field">
+                <input type="text" name="PassengerName" required autocomplete="off" value="John Doe" readonly>
+                <label>Passenger Name</label>
+            </div>
+            <div class="input-field">
+                <input type="email" name="PassengerEmail" required autocomplete="off">
+                <label>Email Address</label>
+            </div>
+            <div class="input-field">
+                <select id="complaintType" required>
+                    <option value="">Select Complaint Type</option>
+                    <option value="Train Services">Train Services</option>
+                    <option value="Station Facilities">Station Facilities</option>
+                    <option value="Staff Behavior">Staff Behavior</option>
+                </select>
+                <label>Complaint Type</label>
+            </div>
+            <div class="input-field">
+                <textarea id="complaintDescription" name="Feedback" required></textarea>
+                <label>Complaint Description</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

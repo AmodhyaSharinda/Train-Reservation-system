@@ -1,0 +1,34 @@
+package com.customer;
+
+public class Contact {
+
+
+	private String Username;
+	private String Email;
+	private String ComplainType;
+	private String Complain;
+	private String status;
+	public Contact( String username, String email, String complainType, String complain, String Status) {
+		Username = username;
+		Email = email;
+		ComplainType = complainType;
+		Complain = complain;
+		status = Status;
+	}
+	public String getUsername() {
+		return Username;
+	}
+	public String getComplainType() {
+		return ComplainType;
+	}
+	public String getComplain() {
+		return Complain;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public String getEmail() {
+		return Email;
+	}
+	
+}

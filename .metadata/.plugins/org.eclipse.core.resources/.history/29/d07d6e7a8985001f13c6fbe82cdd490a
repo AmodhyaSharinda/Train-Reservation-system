@@ -1,0 +1,46 @@
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+
+@WebServlet("/resolveComplaintServlet")
+public class ResolveComplaintServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String complaintId = request.getParameter("id");
+
+        try {
+            // Database connection
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/yourDatabase", "root", "password");
+
+            // SQL query to update the status
+            String sql = "UPDATE complaints SET status = 'Noted' WHERE id = ?";
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, complaintId);
+
+            // Execute update
+            int rowsUpdated = statement.executeUpdate();
+
+            if (rowsUpdated > 0) {
+                System.out.println("Complaint status updated to 'Noted'.");
+            }
+
+            // Close connection
+            statement.close();
+            conn.close();
+
+            // Redirect back to Admin dashboard
+            response.sendRedirect("Admin.jsp");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

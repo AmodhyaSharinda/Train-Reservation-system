@@ -1,0 +1,50 @@
+package com.admin;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+
+@WebServlet("/resolveComplaintServlet")
+public class ResolveComplaintServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	int complaintId = Integer.parseInt(request.getParameter("id"));
+
+        try {
+        	boolean isTrue;
+    		
+    		isTrue = AdminDBUtil.updatecontact(complaintId);
+    		
+    		if (isTrue == true) {
+                System.out.println("Complaint status updated to 'Noted'.");
+            }
+    		
+//    		if(isTrue == true) {
+//    			
+//    			List<Contact> contactDetails = contactDBUtil.getContactDetails(username);
+//    			System.out.println("Contact Details: " + contactDetails);
+//    			request.setAttribute("contactDetails", contactDetails);
+//    			
+//    			RequestDispatcher dis = request.getRequestDispatcher("MyContact.jsp");
+//    			dis.forward(request, response);
+//    		}
+//    		else {
+//    			List<Contact> contactDetails = contactDBUtil.getContactDetails(username);
+//    			System.out.println("Contact Details: " + contactDetails);
+//    			request.setAttribute("contactDetails", contactDetails);
+//    			
+//    			RequestDispatcher dis = request.getRequestDispatcher("MyContact.jsp");
+//    			dis.forward(request, response);
+//    		}
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

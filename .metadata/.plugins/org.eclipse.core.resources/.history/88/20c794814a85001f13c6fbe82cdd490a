@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback - Online Train Reservation System</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Existing styles from the login page are retained here */
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
+
+        * {
+		  margin: 0;
+		  padding: 0;
+		  box-sizing: border-box;
+		  font-family: "Open Sans", sans-serif;
+		}
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            padding: 0 10px;
+  			background: linear-gradient(to bottom, #175d69 23%, #330c43 95%);
+            position: relative;
+        }
+
+        .wrapper {
+            width: 500px;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .input-field {
+            position: relative;
+            border-bottom: 2px solid #ccc;
+            margin: 15px 0;
+        }
+
+        .input-field label {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 16px;
+            pointer-events: none;
+            transition: 0.15s ease;
+        }
+
+        .input-field input,
+        .input-field textarea {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #fff;
+        }
+
+        .input-field textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        .input-field input:focus~label,
+        .input-field input:valid~label,
+        .input-field textarea:focus~label,
+        .input-field textarea:valid~label {
+            font-size: 0.8rem;
+            top: 10px;
+            transform: translateY(-120%);
+        }
+
+        button {
+            background: #fff;
+            color: #000;
+            font-weight: 600;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 16px;
+            border: 2px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            color: #fff;
+            border-color: #fff;
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Submit Feedback or Complaint</h2>
+        <form action="SubmitFeedback" method="post">
+            <div class="input-field">
+                <input type="text" name="PassengerName" required autocomplete="off">
+                <label>Passenger Name</label>
+            </div>
+            <div class="input-field">
+                <input type="email" name="PassengerEmail" required autocomplete="off">
+                <label>Email Address</label>
+            </div>
+            <div class="input-field">
+                <textarea name="Feedback" required></textarea>
+                <label>Your Feedback/Complaint</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
